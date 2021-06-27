@@ -17,8 +17,9 @@ const App = () => {
 
   function startWebAudio() {
     console.log(`User has pressed the start web audio button`)
-    // IMPORTANT! Here is the cross-browser fix that battles issues with Safari on iPadOS and iOS. Desktop Safari on macOS is not affected by this restriction.
+    // IMPORTANT! Here is the cross-browser fix that resolves issues with Safari on iPadOS and iOS.
     // Safari on iPadOS or iOS needs to have a user-initiated event before the audio context will be running and available for Web Audio API usage.
+    // Safari on macOS is not affected by this restriction.
     //
     // There are plenty of solutions that advise warming up the audio context by creating and playing an empty audio buffer. That is unnecessary if you use my approach.
     if (audioContext.state === "suspended") {
